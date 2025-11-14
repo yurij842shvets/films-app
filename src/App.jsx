@@ -1,20 +1,21 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Movies from './pages/Movies'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Movies from "./pages/Movies";
 
-import './App.css'
+import "./App.css";
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
         <Routes>
-        <Route path='/' element={<Home/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
