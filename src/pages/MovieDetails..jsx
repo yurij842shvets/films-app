@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useLocation, useNavigate, Link, useParams } from "react-router-dom"
+import { useLocation, useNavigate, Link, useParams, Outlet } from "react-router-dom"
 import { fetchMovieDetails } from "../../api"
 
 export default function MovieDetails() {
@@ -7,6 +7,8 @@ export default function MovieDetails() {
     const {movieID} = useParams()
     const navigate = useNavigate()
     const location = useLocation()
+
+    const backLink = location.state?.from ?? "/movies";
 
     useEffect(() => {
         fetchMovieDetails(movieID).then(setMovie).catch(console.error)
@@ -16,16 +18,36 @@ export default function MovieDetails() {
 
     return(
         <>
-            <button>
+        <Link to={backLink}>Back</Link>
 
-            </button>
+        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
+       
+        <div>
+            <h2>{movie.title}</h2>
+            <p>User Score: {movie.vote_average}</p>
+            <p>{movie.overview}</p>
 
-            <h2></h2>
-            {
-                <img src="" alt="" />
-            }
+            <h3>Genres</h3>
+            <ul>
+                {movie.genres.map(genre => (
+                    <li key={genre.id}>{genre.name}</li>
+                ))}
+            </ul>
 
+        </div>
+
+        <h3>Additional information</h3>
+ 
+        <ul>
+            <li>
+                <Link to={cast} state={{from: backLink}}>Cast</Link>
+            </li>
+            <li>
+                <Link to={reviews} state={{from: backLink}}>Reviews</Link>
+            </li>
+        </ul>
             
+     <Outlet/>
         </>
     )
 }
