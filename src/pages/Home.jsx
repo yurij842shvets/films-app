@@ -14,7 +14,7 @@ export default function Home() {
 
     return(  
         <>
-            <h1>Популярні фільми</h1>
+            <h1>Popular films</h1>
 
             <ul>
                 {movies?.map((movie) => (

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
-import MovieDetails from "./pages/MovieDetails.";
+import MovieDetails from "./pages/MovieDetails";
 import Navigation from "./components/Navigation";
 import Cast from './components/Cast'
 import Reviews from './components/Reviews'

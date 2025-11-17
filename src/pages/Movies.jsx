@@ -20,7 +20,7 @@ export default function Movies() {
 
   return (
     <>
-      <h2>Пошук фільмів</h2>
+      <h2>Films search</h2>
       <input type="text" />
       <button onSubmit={handleSubmit}>Шукати</button>
 
@@ -31,7 +31,7 @@ export default function Movies() {
                 <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
               </li>
             ))
-          : query && <p>Фільм не знайдено</p>}
+          : query && <p>Film was not found</p>}
       </ul>
     </>
   );

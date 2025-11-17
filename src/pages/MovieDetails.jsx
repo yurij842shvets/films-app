@@ -14,7 +14,7 @@ export default function MovieDetails() {
         fetchMovieDetails(movieID).then(setMovie).catch(console.error)
     }, [movieID])
 
-    if(!movie) return <p>Завантаження...</p>
+    if(!movie) return <p>Loading...</p>
 
     return(
         <>
@@ -40,10 +40,10 @@ export default function MovieDetails() {
  
         <ul>
             <li>
-                <Link to={cast} state={{from: backLink}}>Cast</Link>
+                <Link to={"cast"} state={{from: backLink}}>Cast</Link>
             </li>
             <li>
-                <Link to={reviews} state={{from: backLink}}>Reviews</Link>
+                <Link to={"reviews"} state={{from: backLink}}>Reviews</Link>
             </li>
         </ul>
             
