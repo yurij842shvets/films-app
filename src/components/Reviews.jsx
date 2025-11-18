@@ -18,7 +18,7 @@ export default function Reviews() {
             <ul>
                 {reviews.map(review => (
                     <li key={review.id}>
-                        <h3>Author: review.author</h3>
+                        <h3>Author: {review.author}</h3>
                         <p>{review.content}</p>
                     </li>
 
