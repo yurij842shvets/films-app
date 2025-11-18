@@ -10,8 +10,6 @@ export default function Home() {
         fetchTrending().then(setMovies).catch(console.error);
     }, [])
 
-
-
     return(  
         <>
             <h1>Popular films</h1>

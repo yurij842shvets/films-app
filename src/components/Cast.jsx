@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { fetchMovieCredits } from "../../api";
 
 export default function Cast() {
-  const { moviesID } = useParams();
+  const { movieID } = useParams();
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
-    fetchMovieCredits(moviesID).then((data) => setCast(data.cast));
-  }, [moviesID]);
+    fetchMovieCredits(movieID).then((data) => setCast(data.cast));
+  }, [movieID]);
 
 
 

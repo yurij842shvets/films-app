@@ -5,10 +5,9 @@ import { fetchMovieDetails } from "../../api"
 export default function MovieDetails() {
     const [movie, setMovie] = useState(null)
     const {movieID} = useParams()
-    const navigate = useNavigate()
     const location = useLocation()
 
-    const backLink = location.state?.from ?? "/movies";
+    const backLink = location.state?.from ?? "/";
 
     useEffect(() => {
         fetchMovieDetails(movieID).then(setMovie).catch(console.error)
@@ -18,7 +17,7 @@ export default function MovieDetails() {
 
     return(
         <>
-        <Link to={backLink}>Back</Link>
+        <Link to={backLink} style={{marginRight: '25px'}}>Back</Link>
 
         <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
        
@@ -40,10 +39,10 @@ export default function MovieDetails() {
  
         <ul>
             <li>
-                <Link to={"cast"} state={{from: backLink}}>Cast</Link>
+                <Link to={`/movies/${movieID}/cast`} state={{from: backLink}}>Cast</Link>
             </li>
             <li>
-                <Link to={"reviews"} state={{from: backLink}}>Reviews</Link>
+                <Link to={`/movies/${movieID}/reviews`} state={{from: backLink}}>Reviews</Link>
             </li>
         </ul>
             

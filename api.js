@@ -27,7 +27,7 @@ export async function fetchMovieCredits(movieID) {
     `${URL}/movie/${movieID}/credits?api_key=${API_KEY}`
   );
   const data = await res.json();
-  return data.cast || [];
+  return data
 }
 
 export async function fetchMovieReviews(movieID) {
@@ -35,5 +35,5 @@ export async function fetchMovieReviews(movieID) {
     `${URL}/movie/${movieID}/reviews?api_key=${API_KEY}`
   );
   const data = await res.json();
-  return data.results || [];
+  return data
 }
