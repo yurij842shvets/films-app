@@ -4,8 +4,8 @@ import { useSearchParams, Link } from "react-router-dom";
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
-  const [SearchParams, setSearchParams] = useSearchParams();
-  const query = SearchParams.get("query") ?? "";
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query") ?? "";
 
   useEffect(() => {
     if (!query) return;
@@ -20,9 +20,11 @@ export default function Movies() {
 
   return (
     <>
-      <h2>Films search</h2>
-      <input type="text" />
-      <button onSubmit={handleSubmit}>Шукати</button>
+      <form  onSubmit={handleSubmit}>
+        <h2>Films search</h2>
+        <input type="text" name="query" defaultValue={query}/>
+        <button type="submit">Шукати</button>
+      </form>
 
       <ul>
         {movies.length > 0
